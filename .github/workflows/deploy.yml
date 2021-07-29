@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: |
           npm run build
-          touch ./dist/.nojekyll
+          touch ./docs/.nojekyll
 
       # Push to your pages repo
       - name: Push to pages repo
