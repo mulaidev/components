@@ -4,7 +4,7 @@
 # Remember to add API_TOKEN_GITHUB in repo Settings > Secrets
 env:
   githubEmail: mulai.dev@gmail.com
-  deployToRepo: mulaidev.github.io/components
+  deployToRepo: https://github.com/mulaidev/components
 
 name: Github Pages Astro CI
 
