@@ -1,0 +1,54 @@
+# Workflow to build and deploy to your Github Pages repo.
+
+# Edit your project details here.
+# Remember to add API_TOKEN_GITHUB in repo Settings > Secrets and add user as admin to the organisation repository
+env:
+  githubEmail: mulai.dev@gmail.com
+  githubUsername: mulai-dev
+  deployToOrg: mulaidev
+  deployToRepo: components
+
+name: Github Pages Astro CI
+
+on:
+  # Triggers the workflow on push and pull request events but only for the main branch
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab.
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Install dependencies with npm
+      - name: Install dependencies
+        run: npm ci
+
+      # Build the project and add .nojekyll file to supress default behaviour
+      - name: Build
+        run: |
+          mkdir docs
+          touch ./docs/.nojekyll
+          npm run build
+
+      # Push to your pages repo
+      - name: Push to pages repo
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'docs'
+          destination-repository-username: ${{ env.deployToOrg }}
+          destination-repository-name: ${{ env.deployToRepo }}
+          user-email: ${{ env.githubEmail }}
+          user-name: ${{ env.githubUsername }}
+          commit-message: Deploy ORIGIN_COMMIT
+          target-branch: main
