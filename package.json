@@ -1,13 +1,14 @@
 {
-  "name": "@example/with-tailwindcss",
+  "name": "@mulaidev/components",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "astro dev",
-    "build": "astro build"
+    "build": "astro build",
+    "css": "npx tailwindcss -o dist/global.css"
   },
   "devDependencies": {
-    "tailwindcss": "^2.1.2",
-    "astro": "^0.18.1"
+    "astro": "^0.18.4",
+    "tailwindcss": "^2.2.7"
   }
 }
