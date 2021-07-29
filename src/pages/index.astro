@@ -12,7 +12,7 @@ const navbarBtn = "Periksa Mandiri";
   <head>
     <meta charset="UTF-8" />
     <title>Astro + TailwindCSS</title>
-    <link rel="stylesheet" type="text/css" href="global.css" />
+    <link rel="stylesheet" type="text/css" href="/global.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,14 +21,14 @@ const navbarBtn = "Periksa Mandiri";
 
   <body>
     <Navbar navbarItems={navbarItems} navbarBtn={navbarBtn}>
-      <img class="h-10" src="Logo.png" alt="Logo" />
+      <img class="h-10" src="/Logo.png" alt="Logo" />
     </Navbar>
 
     <Hero>
       <span slot="hero-main-title">Mari Bersama CEGAH CORONA</span>
       <span slot="hero-main-desc">Covid-19 merupakan pandemi virus yang berbahaya dan dapat menyebar dengan cepat. Yuk kita harus bersatu untuk mengurangi penyebaran Covid-19 agar lebih banyak nyawa yang terselamatkan.</span>
       <span slot="hero-btn-title">Kenali Penyebarannya</span>
-      <img slot="hero-image-main" src="IlustrasiHero.png" alt="Image Hero" />
+      <img slot="hero-image-main" src="/IlustrasiHero.png" alt="Image Hero" />
     </Hero>
 
   </body>
