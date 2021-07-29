@@ -35,8 +35,9 @@ jobs:
       # Build the project and add .nojekyll file to supress default behaviour
       - name: Build
         run: |
-          npm run build
+          mkdir docs
           touch ./docs/.nojekyll
+          npm run build
 
       # Push to your pages repo
       - name: Push to pages repo
