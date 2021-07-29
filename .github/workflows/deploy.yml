@@ -1,7 +1,7 @@
 # Workflow to build and deploy to your Github Pages repo.
 
 # Edit your project details here.
-# Remember to add API_TOKEN_GITHUB in repo Settings > Secrets
+# Remember to add API_TOKEN_GITHUB in repo Settings > Secrets and add user as admin to the organisation repository
 env:
   githubEmail: mulai.dev@gmail.com
   deployToOrg: mulaidev
