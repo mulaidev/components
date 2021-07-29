@@ -4,6 +4,7 @@
 # Remember to add API_TOKEN_GITHUB in repo Settings > Secrets and add user as admin to the organisation repository
 env:
   githubEmail: mulai.dev@gmail.com
+  githubUsername: mulai-dev
   deployToOrg: mulaidev
   deployToRepo: components
 
@@ -47,5 +48,6 @@ jobs:
           destination-repository-username: ${{ env.deployToOrg }}
           destination-repository-name: ${{ env.deployToRepo }}
           user-email: ${{ env.githubEmail }}
+          user-name: ${{ env.githubUsername }}
           commit-message: Deploy ORIGIN_COMMIT
           target-branch: main
