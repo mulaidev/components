@@ -17,6 +17,7 @@ const navbarBtn = "Periksa Mandiri";
     <meta charset="UTF-8" />
     <title>Astro + TailwindCSS</title>
     <link rel="stylesheet" type="text/css" href={Css} />
+    <link rel="stylesheet" type="text/css" href="/global.css" />
     <link rel="preconnect" href="//fonts.googleapis.com" />
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin />
     <link href="//fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
@@ -33,6 +34,12 @@ const navbarBtn = "Periksa Mandiri";
       <span slot="hero-btn-title">Kenali Penyebarannya</span>
       <img slot="hero-image-main" src={IllustrasiHero} alt="Image Hero" />
     </Hero>
+
+    <div class="container mx-auto text-center p-15">
+      <h2 class="font-bold text-3xl mb-5">Gejala Corona Virus</h2>
+      <p class="max-w-lg mx-auto">Mereka yang terinfeksi korona mungkin memiliki sedikit atau tanpa gejala. Kamu mungkin tidak tahutentang gejala corona virus (COVID-19) karena mirip dengan pilek atau flu.</p>
+      <img src="/Symptoms.svg" alt="" class="mx-auto w-auto">
+    </div>
 
   </body>
 </html>
