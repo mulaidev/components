@@ -4,16 +4,22 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import Symptoms from '../components/Symptoms.astro';
 import Card from '../components/Card.astro';
+import Navigation from '../components/Navigation.astro';
 
 import Logo from '../../public/Logo.png';
 import IllustrasiHero from '../../public/IlustrasiHero.png';
 import SymptomsImage from '../../public/Symptoms.svg';
+import Placeholder from '../../public/Placeholder.svg';
 
 const Css = Astro.site + "/global.css";
 
 const navbarItems = ["Home", "Tentang Corona", "Hotline"];
 
 const navbarBtn = "Periksa Mandiri";
+
+const navigationItems = ["Features", "Pricing"];
+
+const navigationButton = "Try Free";
 ---
 
 <html lang="en">
@@ -51,9 +57,16 @@ const navbarBtn = "Periksa Mandiri";
       </span>
     </Symptoms>
 
+    <!-- Navigation Components -->
+    <Navigation navigationItems={navigationItems} navigationButton={navigationButton}>
+      <img slot="logo" class="h-10" src={Placeholder} />
+    </Navigation>
+
+    <!-- Card Components -->
     <Card images="https://picsum.photos/800/400" badge="Badge" title="This is title" author="John Doe" times="90 minutes">
       <span slot="badge" class="items-center justify-center px-2 py-1 text-xs font-regular leading-none text-white bg-indigo-500 rounded-md">Badge</span>
     </Card>
+
 
   </body>
 </html>

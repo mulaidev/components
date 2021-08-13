@@ -1,0 +1,33 @@
+---
+const { navigationItems, navigationButton } = Astro.props;
+---
+
+<div id="navigation">
+  <nav class="relative flex flex-wrap items-center justify-between px-3 py-3 bg-gray-300">
+  <div class="container px-11 sm:px-11 lg:px-22 xl:px-28 mx-auto flex flex-wrap items-center justify-between">
+    <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
+        <slot name="logo"></slot>
+    </div>
+    <div class="lg:flex flex-grow items-center hidden" id="example-navbar-warning">
+      <ul class="flex flex-col lg:flex-row list-none ml-auto">
+            {
+                navigationItems.map((item) => (
+                    <li class="nav-item">
+                        <a class="px-3 py-2 flex items-center text-xs font-regular text-black leading-snug hover:font-bold" href="#">
+                            {item}
+                        </a>
+                    </li>
+                ))
+            }
+          <li class="nav-item">
+            <a class="text-gray-300 px-3 py-2 text-xs font-medium" href="/#">
+                <button type="submit" class="px-3 py-2 text-white bg-indigo-500 rounded focus:bg-indigo-600 focus:outline-none">
+                  {navigationButton}
+                </button>
+              </a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
