@@ -2,14 +2,24 @@
 // Component Imports
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
+import Symptoms from '../components/Symptoms.astro';
+import Card from '../components/Card.astro';
+import Navigation from '../components/Navigation.astro';
+
 import Logo from '../../public/Logo.png';
 import IllustrasiHero from '../../public/IlustrasiHero.png';
+import SymptomsImage from '../../public/Symptoms.svg';
+import Placeholder from '../../public/Placeholder.svg';
 
 const Css = Astro.site + "/global.css";
 
 const navbarItems = ["Home", "Tentang Corona", "Hotline"];
 
 const navbarBtn = "Periksa Mandiri";
+
+const navigationItems = ["Features", "Pricing"];
+
+const navigationButton = "Try Free";
 ---
 
 <html lang="en">
@@ -17,7 +27,7 @@ const navbarBtn = "Periksa Mandiri";
     <meta charset="UTF-8" />
     <title>Astro + TailwindCSS</title>
     <link rel="stylesheet" type="text/css" href={Css} />
-    <!-- <link rel="stylesheet" type="text/css" href="/global.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/global.css" />
     <link rel="preconnect" href="//fonts.googleapis.com" />
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin />
     <link href="//fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
@@ -35,11 +45,28 @@ const navbarBtn = "Periksa Mandiri";
       <img slot="hero-image-main" src={IllustrasiHero} alt="Image Hero" />
     </Hero>
 
-    <div class="container mx-auto text-center p-15">
-      <h2 class="font-bold text-3xl mb-5">Gejala Corona Virus</h2>
-      <p class="max-w-lg mx-auto">Mereka yang terinfeksi korona mungkin memiliki sedikit atau tanpa gejala. Kamu mungkin tidak tahutentang gejala corona virus (COVID-19) karena mirip dengan pilek atau flu.</p>
-      <img src="/Symptoms.svg" alt="" class="mx-auto w-auto">
-    </div>
+    <Symptoms>
+      <span slot="symptoms-header">
+        Gejala Corona Virus
+      </span>
+      <span slot="symptoms-title">
+        Mereka yang terinfeksi korona mungkin memiliki sedikit atau tanpa gejala. Kamu mungkin tidak tahutentang gejala corona virus (COVID-19) karena mirip dengan pilek atau flu.
+      </span>
+      <span slot="symptoms-image">
+        <img src={SymptomsImage} alt="SymptomsImage" class="mx-auto w-auto" />
+      </span>
+    </Symptoms>
+
+    <!-- Navigation Components -->
+    <Navigation navigationItems={navigationItems} navigationButton={navigationButton}>
+      <img slot="logo" class="h-10" src={Placeholder} />
+    </Navigation>
+
+    <!-- Card Components -->
+    <Card images="https://picsum.photos/800/400" badge="Badge" title="This is title" author="John Doe" times="90 minutes">
+      <span slot="badge" class="items-center justify-center px-2 py-1 text-xs font-regular leading-none text-white bg-indigo-500 rounded-md">Badge</span>
+    </Card>
+
 
     <div class="container mx-auto text-center">
     <h2 class="font-bold text-3xl mb-3">Update Terkini</h2>
