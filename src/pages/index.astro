@@ -11,7 +11,12 @@ import IllustrasiHero from '../../public/IlustrasiHero.png';
 import SymptomsImage from '../../public/Symptoms.svg';
 import Placeholder from '../../public/Placeholder.svg';
 
-const Css = Astro.site + "/global.css";
+const Css = (() => {
+  if (process.env.NODE_ENV == "production")
+    return Astro.site + "/global.css";
+  else
+    return "/global.css";
+})();
 
 const navbarItems = ["Home", "Tentang Corona", "Hotline"];
 
@@ -27,7 +32,6 @@ const navigationButton = "Try Free";
     <meta charset="UTF-8" />
     <title>Astro + TailwindCSS</title>
     <link rel="stylesheet" type="text/css" href={Css} />
-    <link rel="stylesheet" type="text/css" href="/global.css" />
     <link rel="preconnect" href="//fonts.googleapis.com" />
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin />
     <link href="//fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
