@@ -1,5 +1,9 @@
 # build output
 dist
+public/*.css
+_cacache
+_npx
+_update-notifier-last-checked
 
 # dependencies
 node_modules/
@@ -16,3 +20,4 @@ yarn-error.log*
 
 # macOS-specific files
 .DS_Store
+

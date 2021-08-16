@@ -5,7 +5,8 @@
   "scripts": {
     "start": "astro dev",
     "build": "astro build",
-    "css": "npx tailwindcss -o dist/global.css --minify"
+    "css": "npx tailwindcss -o dist/global.css --minify",
+    "watch": "npx tailwindcss -o public/global.css --watch"
   },
   "devDependencies": {
     "astro": "^0.18.4",

@@ -1,0 +1,32 @@
+<!-- update content -->
+<section id="update_content">
+  <div class="update_content py-10">
+    <!-- container -->
+    <div class="container px-11 sm:px-11 lg:px-22 xl:px-28 mx-auto">
+      <!-- hero wrapper -->
+      <div class="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <!-- hero text -->
+        <div class="hero-text col-span-6 text-center xl:text-left">
+          <h1 class="font-bold text-4xl md:text-5xl xl:text-5xl xl:leading-tight max-w-xl text-gray-900">
+            <slot name="hero-main-title" />
+          </h1>
+
+          <p class="text-gray-800 text-sm leading-relaxed mt-7 font-light mt-12">
+            <slot name="hero-main-desc" />
+          </p>
+
+          <div class="hero-btn mt-10">
+            <button type="submit" class="px-4 py-4 text-white bg-green-500 rounded-md focus:bg-green-600 focus:outline-none">
+              <slot name="hero-btn-title" />
+            </button>
+          </div>
+        </div>
+
+        <!-- hero image -->
+        <div class="hero-image col-span-6">
+          <slot name="hero-image-main" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
