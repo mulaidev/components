@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "astro dev",
-    "build": "astro build",
+    "build": "NODE_ENV=production astro build",
     "css": "npx tailwindcss -o dist/global.css --minify",
     "watch": "npx tailwindcss -o public/global.css --watch"
   },
