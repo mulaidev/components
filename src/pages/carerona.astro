@@ -1,0 +1,59 @@
+---
+import Logo from '../../public/Logo.png';
+import IllustrasiHero from '../../public/IlustrasiHero.png';
+import SymptomsImage from '../../public/Symptoms.svg';
+
+import Navbar from '../components/Astro/Navbar.astro';
+import Hero from '../components/Astro/Hero.astro';
+import Symptoms from '../components/Astro/Symptoms.astro';
+
+const title = "Carerona";
+
+const navbarItems = ["Home", "Tentang Corona", "Hotline"];
+
+const navbarBtn = "Periksa Mandiri";
+
+const Css = (() => {
+  if (process.env.NODE_ENV == "production")
+    return Astro.site + "/global.css";
+  else
+    return "/global.css";
+})();
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <link rel="stylesheet" type="text/css" href={Css} />
+    <link rel="preconnect" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin />
+    <link href="//fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="font-body">
+    <Navbar navbarItems={navbarItems} navbarBtn={navbarBtn}>
+      <img class="h-10" src={Logo} alt="Logo" />
+    </Navbar>
+
+    <Hero>
+      <span slot="hero-main-title">Mari Bersama CEGAH CORONA</span>
+      <span slot="hero-main-desc">Covid-19 merupakan pandemi virus yang berbahaya dan dapat menyebar dengan cepat. Yuk kita harus bersatu untuk mengurangi penyebaran Covid-19 agar lebih banyak nyawa yang terselamatkan.</span>
+      <span slot="hero-btn-title">Kenali Penyebarannya</span>
+      <img slot="hero-image-main" src={IllustrasiHero} alt="Image Hero" />
+    </Hero>
+
+    <Symptoms>
+      <span slot="symptoms-header">
+        Gejala Corona Virus
+      </span>
+      <span slot="symptoms-title">
+        Mereka yang terinfeksi korona mungkin memiliki sedikit atau tanpa gejala. Kamu mungkin tidak tahutentang gejala corona virus (COVID-19) karena mirip dengan pilek atau flu.
+      </span>
+      <span slot="symptoms-image">
+        <img src={SymptomsImage} alt="SymptomsImage" class="mx-auto w-auto" />
+      </span>
+    </Symptoms>
+  </body>
+</html>
