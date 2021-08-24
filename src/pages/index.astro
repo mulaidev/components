@@ -1,14 +1,17 @@
 ---
 // Component Imports
-import Navbar from '../components/Navbar.astro';
-import Hero from '../components/Hero.astro';
-import Symptoms from '../components/Symptoms.astro';
-import Card from '../components/Card.astro';
-import Navigation from '../components/Navigation.astro';
 
-import Logo from '../../public/Logo.png';
-import IllustrasiHero from '../../public/IlustrasiHero.png';
-import SymptomsImage from '../../public/Symptoms.svg';
+// Astro Components
+import Navigation from '../components/Astro/Navigation.astro';
+import Card from '../components/Astro/Card.astro';
+
+// React Components
+import FeatureSection from '../components/React/FeatureSection/FeatureSection.jsx';
+import Upgrade from '../components/React/Upgrade/Upgrade.jsx';
+import Avatar from '../components/React/Avatar/Avatar.jsx';
+import Pricing from '../components/React/Pricing/Pricing.jsx';
+import Login from '../components/React/Login/Login.jsx';
+
 import Placeholder from '../../public/Placeholder.svg';
 import icirclesolid from '../../public/icirclesolid.svg';
 import bell from '../../public/bell.svg';
@@ -23,13 +26,11 @@ const Css = (() => {
     return "/global.css";
 })();
 
-const navbarItems = ["Home", "Tentang Corona", "Hotline"];
-
-const navbarBtn = "Periksa Mandiri";
-
 const navigationItems = ["Features", "Pricing"];
 
 const navigationButton = "Try Free";
+
+const pricingFeature = ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5"];
 ---
 
 <html lang="en">
@@ -43,29 +44,6 @@ const navigationButton = "Try Free";
   </head>
 
   <body class="font-body">
-    <Navbar navbarItems={navbarItems} navbarBtn={navbarBtn}>
-      <img class="h-10" src={Logo} alt="Logo" />
-    </Navbar>
-
-    <Hero>
-      <span slot="hero-main-title">Mari Bersama CEGAH CORONA</span>
-      <span slot="hero-main-desc">Covid-19 merupakan pandemi virus yang berbahaya dan dapat menyebar dengan cepat. Yuk kita harus bersatu untuk mengurangi penyebaran Covid-19 agar lebih banyak nyawa yang terselamatkan.</span>
-      <span slot="hero-btn-title">Kenali Penyebarannya</span>
-      <img slot="hero-image-main" src={IllustrasiHero} alt="Image Hero" />
-    </Hero>
-
-    <Symptoms>
-      <span slot="symptoms-header">
-        Gejala Corona Virus
-      </span>
-      <span slot="symptoms-title">
-        Mereka yang terinfeksi korona mungkin memiliki sedikit atau tanpa gejala. Kamu mungkin tidak tahutentang gejala corona virus (COVID-19) karena mirip dengan pilek atau flu.
-      </span>
-      <span slot="symptoms-image">
-        <img src={SymptomsImage} alt="SymptomsImage" class="mx-auto w-auto" />
-      </span>
-    </Symptoms>
-
     <!-- Navigation Components -->
     <Navigation navigationItems={navigationItems} navigationButton={navigationButton}>
       <img slot="logo" class="h-10" src={Placeholder} />
@@ -142,7 +120,36 @@ const navigationButton = "Try Free";
       </div>
 
       </div>
-    
+
+      <!-- FeatureSection -->
+      <FeatureSection
+        image="https://picsum.photos/800/400"
+        title="Lorem Ipsum"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+
+      <!-- Alert -->
+      <Upgrade
+        alert=false
+        image={Placeholder}
+        title="Free Plan"
+        description="The development of the mass spectrometer allowed the mass of atoms to be measured."
+        currency="$"
+        price="19"
+        btnAccept="Upgrade Now"
+        btnReject="No, Thanks"/>
+
+      <!-- Avatar   -->
+      <Avatar roundedFull images="https://picsum.photos/800/400" />
+
+      <!-- Pricing -->
+      <Pricing
+        badge="Most Popular"
+        currency="$"
+        price="35"
+        license="Individual"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        feature={pricingFeature}
+        button="/pricing"/>
 
   </body>
 </html>
